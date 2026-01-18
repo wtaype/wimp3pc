@@ -13,10 +13,14 @@ dependencies:
     sdk: flutter
   
   # Gestión de archivos y sistema
-  file_picker: ^8.1.4
+  file_picker: ^10.3.8
   path_provider: ^2.1.5
   path: ^1.9.1
   
+  # Procesamiento de soltar y arrastrar
+  desktop_drop: ^0.7.0
+  cross_file: ^0.3.4+2
+
   # Procesamiento de video y audio
   process_run: ^1.2.1
   
