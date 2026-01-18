@@ -15,4 +15,9 @@ git add . ; git commit -m "Actualizacion Principal v11.10.10" ; git push origin 
 
 // En caso de emergencia, para actualizar el Tag existente. (3)
 git tag -d v11 ; git tag v11 -m "Version v11 actualizada" ; git push origin v11 --force
+
+// Compiplacion + exe windows
+flutter build windows --release
+C:\midev\miflutter\wimp3\build\windows\x64\runner\Release\
+
  ACTUALIZACION TAG[END] */
