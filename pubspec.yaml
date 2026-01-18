@@ -1,146 +1,62 @@
-# ═══════════════════════════════════════════════════════════════════════════
-# 📱 INFORMACIÓN GENERAL DE LA APLICACIÓN
-# ═══════════════════════════════════════════════════════════════════════════
 name: wimp3
 description: "WIMP3 - Conversor profesional de Video a Audio MP3 con múltiples calidades de exportación"
-publish_to: 'none'                      # No publicar en pub.dev (app privada)
-
-# Versión de la aplicación: MAJOR.MINOR.PATCH+BUILD_NUMBER
-# Ejemplo: 1.0.0+1 = Versión 1.0.0, Build 1
+publish_to: 'none'
 version: 1.0.0+1
 
-# ═══════════════════════════════════════════════════════════════════════════
-# 🔧 REQUISITOS DEL ENTORNO DE DESARROLLO
-# ═══════════════════════════════════════════════════════════════════════════
 environment:
-  sdk: ^3.9.2                           # Versión mínima de Dart SDK requerida
-  flutter: ">=3.24.0"                   # Versión mínima de Flutter requerida
+  sdk: ^3.9.2
+  flutter: ">=3.24.0"
 
-# ═══════════════════════════════════════════════════════════════════════════
-# 📚 DEPENDENCIAS PRINCIPALES (RUNTIME)
-# ═══════════════════════════════════════════════════════════════════════════
+# ====== DEPENDENCIAS PRINCIPALES ======
 dependencies:
   flutter:
     sdk: flutter
   
-  # ────────────────────────────────────────────────────────────────────────
-  # 📂 GESTIÓN DE ARCHIVOS Y SISTEMA
-  # ────────────────────────────────────────────────────────────────────────
-  file_picker: ^8.1.4                   # Selector de archivos del sistema (videos)
-  path_provider: ^2.1.5                 # Acceso a directorios del sistema (Descargas, Documentos)
-  path: ^1.9.1                          # Manipulación de rutas y nombres de archivos
-
-  # ────────────────────────────────────────────────────────────────────────
-  # 🎬 PROCESAMIENTO DE VIDEO Y AUDIO
-  # ────────────────────────────────────────────────────────────────────────
-  process_run: ^1.2.1                   # Ejecución de procesos del sistema (FFmpeg CLI)
-
-  # ────────────────────────────────────────────────────────────────────────
-  # 🎨 INTERFAZ DE USUARIO Y EXPERIENCIA VISUAL
-  # ────────────────────────────────────────────────────────────────────────
-  google_fonts: ^7.0.0                  # Tipografías modernas de Google Fonts (Poppins, Roboto)
-  flutter_animate: ^4.5.0               # Animaciones fluidas y transiciones suaves
+  # Gestión de archivos y sistema
+  file_picker: ^8.1.4
+  path_provider: ^2.1.5
+  path: ^1.9.1
   
-  # ────────────────────────────────────────────────────────────────────────
-  # 🛠️ UTILIDADES Y FUNCIONALIDADES COMPLEMENTARIAS
-  # ────────────────────────────────────────────────────────────────────────
-  intl: ^0.20.2                         # Internacionalización, formato de números y tamaños de archivo
-  url_launcher: ^6.3.2                  # Abrir carpetas del explorador de Windows
-  shared_preferences: ^2.5.3            # Almacenamiento local de preferencias del usuario
+  # Procesamiento de video y audio
+  process_run: ^1.2.1
+  
+  # Interfaz de usuario
+  google_fonts: ^7.0.0
+  flutter_animate: ^4.5.0
+  
+  # Utilidades
+  intl: ^0.20.2
+  url_launcher: ^6.3.2
+  shared_preferences: ^2.5.3
 
-# ═══════════════════════════════════════════════════════════════════════════
-# 🧪 DEPENDENCIAS DE DESARROLLO (SOLO PARA TESTING Y BUILD)
-# ═══════════════════════════════════════════════════════════════════════════
+# ====== DEPENDENCIAS DE DESARROLLO ======
 dev_dependencies:
   flutter_test:
-    sdk: flutter                        # Framework de testing de Flutter
-  
-  # ────────────────────────────────────────────────────────────────────────
-  # 🔍 HERRAMIENTAS DE CALIDAD DE CÓDIGO
-  # ────────────────────────────────────────────────────────────────────────
-  flutter_lints: ^6.0.0                 # Reglas de análisis estático (buenas prácticas)
-  
-  # ────────────────────────────────────────────────────────────────────────
-  # 🖼️ GENERACIÓN DE RECURSOS
-  # ────────────────────────────────────────────────────────────────────────
-  flutter_launcher_icons: ^0.14.4       # Generador automático de iconos de aplicación
-  msix: ^3.16.8                         # Empaquetador de instaladores para Windows (MSIX)
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+  msix: ^3.16.8
 
-# ═══════════════════════════════════════════════════════════════════════════
-# 🎨 CONFIGURACIÓN DE ICONO DE LA APLICACIÓN
-# ═══════════════════════════════════════════════════════════════════════════
+# ====== CONFIGURACIÓN DE ASSETS Y BUILD ======
+# Icono de la aplicación
 flutter_launcher_icons:
   windows:
-    generate: true                      # Habilitar generación de icono para Windows
-    image_path: "assets/iconos.png"     # Ruta del archivo de imagen (PNG recomendado 1024x1024)
-    icon_size: 256                      # Tamaño del icono en píxeles (256x256 para Windows)
+    generate: true
+    image_path: "assets/iconos.png"
+    icon_size: 256
 
-# ═══════════════════════════════════════════════════════════════════════════
-# 📦 CONFIGURACIÓN DE INSTALADOR MSIX (MICROSOFT STORE)
-# ═══════════════════════════════════════════════════════════════════════════
+# Instalador MSIX
 msix_config:
-  display_name: WIMP3                   # Nombre mostrado en el menú de Windows
-  publisher_display_name: Wilder Taype  # Nombre del desarrollador/empresa
-  identity_name: com.wimp3.converter    # Identificador único de la aplicación (formato: com.empresa.app)
-  msix_version: 1.0.0.0                 # Versión del instalador MSIX (MAJOR.MINOR.PATCH.BUILD)
-  logo_path: assets/iconos.png          # Logo de la aplicación (mismo que el icono)
-  
-  # ────────────────────────────────────────────────────────────────────────
-  # 🔐 PERMISOS Y CAPACIDADES DE LA APLICACIÓN
-  # ────────────────────────────────────────────────────────────────────────
+  display_name: WIMP3
+  publisher_display_name: Wilder Taype
+  identity_name: com.wimp3.converter
+  msix_version: 1.0.0.0
+  logo_path: assets/iconos.png
   capabilities: 'internetClient,videosLibrary,musicLibrary,picturesLibrary'
-  # internetClient:    Acceso a internet (para actualizaciones futuras)
-  # videosLibrary:     Acceso a la biblioteca de videos del usuario
-  # musicLibrary:      Acceso a la biblioteca de música del usuario
-  # picturesLibrary:   Acceso a la biblioteca de imágenes del usuario
 
-# ═══════════════════════════════════════════════════════════════════════════
-# 🗂️ CONFIGURACIÓN DE ASSETS Y RECURSOS
-# ═══════════════════════════════════════════════════════════════════════════
+# Assets del proyecto
 flutter:
-  uses-material-design: true            # Habilitar Material Design 3 (iconos y componentes modernos)
-  
-  # ────────────────────────────────────────────────────────────────────────
-  # 📁 ARCHIVOS INCLUIDOS EN LA APLICACIÓN
-  # ────────────────────────────────────────────────────────────────────────
+  uses-material-design: true
   assets:
-    # ── HERRAMIENTAS DE CONVERSIÓN ──
-    - assets/ffmpeg/                    # Carpeta con FFmpeg.exe (conversor de video/audio)
-    
-    # ── RECURSOS VISUALES ──
-    - assets/iconos.png                 # Icono principal de la aplicación (1024x1024 px)
-    # - assets/inicio.png               # Imagen de pantalla de inicio/splash (opcional)
-    # - assets/logo.png                 # Logo de la marca (opcional)
-
-# ═══════════════════════════════════════════════════════════════════════════
-# 📝 NOTAS DE DESARROLLO
-# ═══════════════════════════════════════════════════════════════════════════
-# 
-# COMANDOS ÚTILES:
-# ────────────────────────────────────────────────────────────────────────
-# flutter pub get                       → Instalar/actualizar dependencias
-# dart run flutter_launcher_icons       → Generar iconos de la aplicación
-# flutter clean                         → Limpiar archivos de compilación
-# flutter run -d windows                → Ejecutar en Windows (modo debug)
-# flutter build windows --release       → Compilar versión release
-# dart run msix:create                  → Crear instalador MSIX
-#
-# ESTRUCTURA DE CARPETAS REQUERIDA:
-# ────────────────────────────────────────────────────────────────────────
-# wimp3/
-# ├── assets/
-# │   ├── ffmpeg/
-# │   │   └── ffmpeg.exe               ← OBLIGATORIO (descargar de ffmpeg.org)
-# │   └── iconos.png                   ← OBLIGATORIO (1024x1024 px, PNG)
-# ├── lib/
-# │   ├── main.dart
-# │   ├── wii.dart                     ← Información de la app
-# │   ├── wicss.dart                   ← Estilos y colores
-# │   ├── widev.dart                   ← Widgets reutilizables
-# │   └── pantallas/
-# │       ├── inicio.dart              ← Pantalla principal
-# │       ├── entrada.dart             ← Selección de archivos
-# │       └── salida.dart              ← Conversión y exportación
-# └── pubspec.yaml                     ← Este archivo
-#
-# ═══════════════════════════════════════════════════════════════════════════
+    - assets/ffmpeg/
+    - assets/iconos.png
